@@ -1,37 +1,37 @@
 {
-  "name": "YouClip",
-  "version": "1.0",
-  "description": "Easily bookmark and save your favorite YouTube videos with YouClip",
-  "permissions": [
-    "storage",
-    "activeTab",
-    "tabs"
-  ],
-  "host_permissions": ["https://*.youtube.com/*"],
-  "background": "background.js",
-  "content_scripts": [
-    {
-      "matches": ["https://*.youtube.com/*"],
-      "js": ["contentScript.js"]
-    }
-  ],
-  "web_accessible_resources": [{
-    "resources": [
-      "assets/bookmark.png",
-      "assets/play.png",
-      "assets/delete.png",
-      "assets/save.png"
-    ],
-    "matches":["https://*.youtube.com/*"]
-  }],
-  "action": {
-    "default_icon": {
-      "16": "assets/ext-icon16.png",
-      "24": "assets/ext-icon24.png",
-      "32": "assets/ext-icon32.png"
+    "name": "YouClip",
+    "version": "0.1.0",
+    "description": "Easily bookmark and save your favorite YouTube videos with YouClip",
+    "permissions": ["storage", "tabs"],
+    "host_permissions": ["https://*.youtube.com/*"],
+    "background": {
+      "service_worker": "background.js"
     },
-    "default_title": "YouClip",
-    "default_popup": "popup.html"
-  },
-  "manifest_version": 3
+    "content_scripts": [
+      {
+        "matches": ["https://*.youtube.com/*"],
+        "js": ["contentScript.js"]
+      }
+    ],
+    "web_accessible_resources": [
+      {
+        "resources": [
+          "assets/bookmark.png",
+          "assets/play.png",
+          "assets/delete.png",
+          "assets/save.png"
+        ],
+        "matches": ["https://*.youtube.com/*"]
+      }
+    ],
+    "action": {
+      "default_icon": {
+        "16": "assets/ext-icon16.png",
+        "24": "assets/ext-icon24.png",
+        "32": "assets/ext-icon32.png"
+      },
+      "default_title": "YouClip",
+      "default_popup": "popup.html"
+    },
+    "manifest_version": 3
 }
